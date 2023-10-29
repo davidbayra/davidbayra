@@ -1,7 +1,7 @@
 import { AnimalsData, SoundsData, ImageData } from "./data.ts";
 
 export const dataBackground: ImageData = {
-  src: 'background.svg',
+  src: 'background_new.svg',
   width: 749,
   height: 545,
 };
@@ -17,12 +17,12 @@ export const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     sel: 'bird-sel.svg',
-    width: 43,
-    height: 35,
+    width: 42.46,
+    height: 34.68,
     drop: {
       src: 'bird-drop.svg',
-      x: 478,
-      y: 430,
+      x: 456.56,
+      y: 98.86,
     },
   },
   deer: {
@@ -30,12 +30,12 @@ export const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     sel: 'deer-sel.svg',
-    width: 172,
-    height: 205,
+    width: 171.82,
+    height: 204.97,
     drop: {
       src: 'deer-drop.svg',
-      x: 58,
-      y: 64,
+      x: 158.39,
+      y: 174.72,
     },
   },
   fox: {
@@ -43,12 +43,12 @@ export const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     sel: 'fox-sel.svg',
-    width: 183,
-    height: 110,
+    width: 182.79,
+    height: 109.38,
     drop: {
       src: 'fox-drop.svg',
-      x: 321,
-      y: 107,
+      x: 229.97,
+      y: 383.14,
     },
   },
   hare: {
@@ -56,12 +56,12 @@ export const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     sel: 'hare-sel.svg',
-    width: 44,
-    height: 61,
+    width: 44.27,
+    height: 61.1,
     drop: {
       src: 'hare-drop.svg',
-      x: 612,
-      y: 169,
+      x: 589.06,
+      y: 345.84,
     },
   },
   hedgehog: {
@@ -69,12 +69,12 @@ export const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     sel: 'hedgehog-sel.svg',
-    width: 74,
-    height: 45,
+    width: 73.53,
+    height: 44.66,
     drop: {
       src: 'hedgehog-drop.svg',
-      x: 154,
-      y: 128,
+      x: 116.84,
+      y: 394.28,
     },
   },
   owl: {
@@ -82,12 +82,12 @@ export const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     sel: 'owl-sel.svg',
-    width: 56,
-    height: 58,
+    width: 56.2,
+    height: 57.62,
     drop: {
       src: 'owl-drop.svg',
-      x: 612,
-      y: 315,
+      x: 583.4,
+      y: 201.33,
     },
   },
   squirrel: {
@@ -95,12 +95,12 @@ export const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     sel: 'squirrel-sel.svg',
-    width: 67,
-    height: 36,
+    width: 66.42,
+    height: 35.68,
     drop: {
       src: 'squirrel-drop.svg',
-      x: 417,
-      y: 269,
+      x: 383.83,
+      y: 257.93,
     },
   },
   wolf: {
@@ -108,12 +108,12 @@ export const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     sel: 'wolf-sel.svg',
-    width: 125,
-    height: 83,
+    width: 125.07,
+    height: 82.44,
     drop: {
       src: 'wolf-drop.svg',
-      x: 495,
-      y: 137,
+      x: 431.89,
+      y: 366.17,
     },
   },
 };

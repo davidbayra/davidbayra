@@ -28,10 +28,11 @@ export default class KonvaFactory {
   createImage(animal: AnimalWithImage): Image {
     const width: number = animal.width * this.canvasSize.getScale();
     const height: number = animal.height * this.canvasSize.getScale();
+
     return new Konva.Image({
       image: animal.images.origin,
-      x: randomInterval(0, this.canvasSize.getWidth() - width),
-      y: randomInterval(0, this.canvasSize.getHeight() - height),
+      x: randomInterval(52, this.canvasSize.getWidth() - width - 52),
+      y: randomInterval(34, this.canvasSize.getHeight() - height - 34),
       draggable: true,
       width,
       height

@@ -27,7 +27,7 @@ export default class CanvasSize {
 
     if (newHeight > windowHeight) {
       newHeight = windowHeight;
-      newWidth = newWidth / imageAspect;
+      newWidth = newHeight * imageAspect;
     }
 
     this.width = newWidth;
