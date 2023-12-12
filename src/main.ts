@@ -6,33 +6,36 @@ import AudioService from "./AudioService.ts";
 import { soundsData } from "./source.ts";
 import ConfettiService from "./ConfettiService.ts";
 
-const audioService = new AudioService('/sounds/');
+const BASE_URL = import.meta.env.BASE_URL;
+
+const audioService = new AudioService(`${BASE_URL}/sounds/`);
 const gameBuilder = new GameBuilder(
   new ImageLoader(),
   audioService,
   dataAnimals
 );
 
-const game = await gameBuilder
-  .loadSounds(soundsData)
-  .loadBackground(dataBackground)
-  .loadAnimalImages()
-  .build();
+;(async () => {
+  const game = await gameBuilder
+    .loadSounds(soundsData)
+    .loadBackground(dataBackground)
+    .loadAnimalImages()
+    .build();
 
-game.start();
-document.querySelector('#restart')?.addEventListener('click', () => {
   game.start();
-  game.restart();
-});
-document.querySelector('#mute')?.addEventListener('click', (event) => {
-  const isMute = audioService.toggleSound();
-  const button = event.target as HTMLImageElement;
-  button.textContent = `Sound ${isMute ? 'OFF' : 'ON'}`;
-});
+  document.querySelector('#restart')?.addEventListener('click', () => {
+    game.start();
+    game.restart();
+  });
+  document.querySelector('#mute')?.addEventListener('click', (event) => {
+    const isMute = audioService.toggleSound();
+    const button = event.target as HTMLImageElement;
+    button.textContent = `Sound ${isMute ? 'OFF' : 'ON'}`;
+  });
 
-const confettiService = new ConfettiService()
-game.onEndGame(() => {
-  confettiService.start()
-  setTimeout(() => alert)
+  const confettiService = new ConfettiService()
+  game.onEndGame(() => {
+    confettiService.start()
+    setTimeout(() => alert)
+  });
 });
-
