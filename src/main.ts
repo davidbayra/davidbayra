@@ -1,9 +1,8 @@
 import './style.css';
-import { dataBackground, dataAnimals } from './source.ts';
+import { dataBackground, dataAnimals, soundsData } from './source.ts';
 import ImageLoader from "./ImageLoader.ts";
 import GameBuilder from "./GameBuilder.ts";
 import AudioService from "./AudioService.ts";
-import { soundsData } from "./source.ts";
 import ConfettiService from "./ConfettiService.ts";
 
 const BASE_URL = import.meta.env.BASE_URL;
@@ -24,7 +23,6 @@ const gameBuilder = new GameBuilder(
 
   game.start();
   document.querySelector('#restart')?.addEventListener('click', () => {
-    game.start();
     game.restart();
   });
   document.querySelector('#mute')?.addEventListener('click', (event) => {
@@ -38,4 +36,4 @@ const gameBuilder = new GameBuilder(
     confettiService.start()
     setTimeout(() => alert)
   });
-});
+})();
