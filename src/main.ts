@@ -4,10 +4,11 @@ import ImageLoader from "./ImageLoader.ts";
 import GameBuilder from "./GameBuilder.ts";
 import AudioService from "./AudioService.ts";
 import ConfettiService from "./ConfettiService.ts";
+import SnowService from "./SnowService.ts";
 
 const BASE_URL = import.meta.env.BASE_URL;
 
-const audioService = new AudioService(`${BASE_URL}/sounds/`);
+const audioService = new AudioService(`${BASE_URL}sounds/`);
 const gameBuilder = new GameBuilder(
   new ImageLoader(),
   audioService,
@@ -22,9 +23,11 @@ const gameBuilder = new GameBuilder(
     .build();
 
   game.start();
+
   document.querySelector('#restart')?.addEventListener('click', () => {
     game.restart();
   });
+
   document.querySelector('#mute')?.addEventListener('click', (event) => {
     const isMute = audioService.toggleSound();
     const button = event.target as HTMLImageElement;
@@ -33,7 +36,11 @@ const gameBuilder = new GameBuilder(
 
   const confettiService = new ConfettiService()
   game.onEndGame(() => {
-    confettiService.start()
-    setTimeout(() => alert)
+    confettiService.start(5)
+  });
+
+  const snowService = new SnowService()
+  document.querySelector('#snow')?.addEventListener('click', () => {
+    snowService.start(5)
   });
 })();

@@ -1,7 +1,10 @@
 import confetti, { Options } from 'canvas-confetti';
+import { randomInterval } from "./randomInterval.ts";
 
 export default class ConfettiService {
-  private readonly options: Options;
+  protected readonly options: Options;
+  protected timerId: number = 0;
+
   constructor(options: Partial<Options> = {}) {
     const defaultOptions: Partial<Options> = {
       spread: 360,
@@ -14,22 +17,33 @@ export default class ConfettiService {
     }
     this.options = { ...defaultOptions, ...options }
   }
-  start() {
-    // const duration = second *1000;
-    // let animationEnd = Date.now() + duration;
+  start(second: number = 100) {
+    const duration = second *1000;
+    let animationEnd = Date.now() + duration;
 
-    confetti({
-      ...this.options,
-      particleCount: 40,
-      scalar: 1.2,
-      shapes: ['star']
-    });
+    this.timerId = setInterval(() => {
+      let timeLeft = animationEnd - Date.now()
 
-    confetti({
-      ...this.options,
-      particleCount: 10,
-      scalar: 0.75,
-      shapes: ['circle']
-    });
+      if (timeLeft <= 0) {
+        return this.stop()
+      }
+
+      const particleCount = 50 * (timeLeft / duration)
+      // since particles fall down, start a bit higher than random
+      confetti({
+        ...this.options,
+        particleCount,
+        origin: { x: randomInterval(0.1, 0.3), y: Math.random() - 0.2 },
+      })
+      confetti({
+        ...this.options,
+        particleCount,
+        origin: { x: randomInterval(0.7, 0.9), y: Math.random() - 0.2 },
+      })
+    }, 250)
+  }
+
+  stop() {
+    clearInterval(this.timerId)
   }
 }
